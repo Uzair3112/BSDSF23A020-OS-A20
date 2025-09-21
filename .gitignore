@@ -1,0 +1,16 @@
+# Ignore object files and binaries
+*.o
+*.exe
+*.out
+
+# Ignore compiled directories content, but keep .gitkeep
+bin/*
+lib/*.so
+lib/*.a
+obj/*
+!bin/.gitkeep
+!lib/.gitkeep
+!obj/.gitkeep
+!src/.gitkeep
+!include/.gitkeep
+
