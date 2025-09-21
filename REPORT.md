@@ -60,4 +60,40 @@ Shared libraries (.so) may be mapped at different addresses by different process
 By default, loader only looks in system directories (`/lib`, `/usr/lib`). Since our `libmyutils.so` is in a custom `./lib` directory, we must export `LD_LIBRARY_PATH` to include it.  
 This demonstrates the OS dynamic loader’s role: resolving and mapping required shared libraries before execution starts.
 
-- Feature-5: Man pages & install target (man-pages branch)
+
+
+### Feature-5 — Man Pages & Install Target
+
+**Q1. Man Page Content**
+We created a man page (client.1) in groff format with sections:
+- NAME (client - demo program)
+- SYNOPSIS (how to run)
+- DESCRIPTION (purpose and features)
+- AUTHOR (credits)
+
+**Q2. Makefile install Target**
+We added an `install` target that:
+- Copies the executable into /usr/local/bin as `client`
+- Copies the man page into /usr/local/share/man/man1/client.1
+
+An `uninstall` target was also provided for cleanup.
+
+**Q3. Testing**
+- After `sudo make install`, the program runs by typing `client` from anywhere.
+- The man page is accessible via `man client`.
+
+**Q4. Git Workflow**
+- A separate branch `man-pages` was created.
+- Work was committed and pushed with clear messages.
+- Tag `v0.4.1-final` created and a GitHub Release published.
+
+
+
+
+### Final Reflection
+This project helped me understand:
+- Multi-file compilation with Makefiles.
+- Creating and linking static libraries.
+- Creating and linking dynamic libraries, and the role of LD_LIBRARY_PATH.
+- Writing man pages using groff and installing executables.
+- Using Git branches, merges, tags, and GitHub releases as part of a real workflow.
